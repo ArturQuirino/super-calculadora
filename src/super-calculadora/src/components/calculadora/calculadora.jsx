@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import DisplayCalculo from './displayCalculo/displayCalculo';
+import './calculadora.css';
 
 class Calculadora extends Component {
   state = { numero1: 0, numero2: 0 };
@@ -35,12 +36,20 @@ class Calculadora extends Component {
 
   render() {
     return (
-      <div>
-        <div>
-          <label>Primeiro Número: </label>
-          <input onChange={this.alterarValorNumero1} type="number"></input>
-          <label>Segundo Número: </label>
-          <input onChange={this.alterarValorNumero2} type="number"></input>
+      <main>
+        <div className="calculadora__container-inputs">
+          <label htmlFor="primeiroNumeroInput">Primeiro Número: </label>
+          <label htmlFor="segundoNumeroInput">Segundo Número: </label>
+          <input
+            onChange={this.alterarValorNumero1}
+            type="number"
+            name="primeiroNumeroInput"
+          ></input>
+          <input
+            onChange={this.alterarValorNumero2}
+            type="number"
+            name="segundoNumeroInput"
+          ></input>
         </div>
         <div>
           {this.calculos.map((calculo) => (
@@ -52,7 +61,7 @@ class Calculadora extends Component {
             ></DisplayCalculo>
           ))}
         </div>
-      </div>
+      </main>
     );
   }
 }
