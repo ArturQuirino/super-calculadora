@@ -6,4 +6,15 @@
   font-size: 24px;
   font-weight: 600;
   box-shadow: 1px 1px 4px black;
+  flex-direction: column;
+}
+
+.header__navigation-container {
+  display: flex;
+  justify-content: space-around;
+  width: 30%;
+}
+
+.header__navigation-container__link {
+  color: black;
 }
