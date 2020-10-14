@@ -32,6 +32,30 @@ class Calculadora extends Component {
         return a * b;
       },
     },
+    {
+      descricao: 'Divisão dos números',
+      calculo: (a, b) => {
+        if (!b) {
+          return 'Divisão inválida';
+        }
+        return a / b;
+      },
+    },
+    {
+      descricao: 'Potência dos números',
+      calculo: (a, b) => {
+        return a ** b;
+      },
+    },
+    {
+      descricao: 'Resto da divisão dos números',
+      calculo: (a, b) => {
+        if (!b) {
+          return 'Divisão inválida';
+        }
+        return a % b;
+      },
+    },
   ];
 
   render() {
