@@ -1,5 +1,6 @@
 const express = require('express');
 const server = express();
+const port = process.env.PORT || 5000;
 server.use(express.json());
 const lista = [];
 
@@ -41,5 +42,5 @@ function checkKeyExists(req, res, next)
     return next(); 
 }
 
-server.listen(3000);
+server.listen(port);
 
