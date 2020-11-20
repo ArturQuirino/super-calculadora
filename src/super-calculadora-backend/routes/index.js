@@ -4,19 +4,24 @@ const port = process.env.PORT || 5000;
 server.use(express.json());
 const lista = [];
 
-server.get('/teste', (req, res) => 
+server.get('/soma', (req, res) => 
 {
     return res.json(lista);
 });
 
-server.post('/teste', checkKeyExists, (req, res) => {
+server.get('/teste', (req, res) => 
+{
+    res.send({ express: 'Hello From Express' });
+});
+
+server.post('/soma', checkKeyExists, (req, res) => {
     const { name } = req.body;
     lista.push(name);
     
     return res.json(lista); 
 }); 
 
-server.put('/teste/:index', checkKeyExists, (req, res) => {
+server.put('/soma/:index', checkKeyExists, (req, res) => {
     const { index } = req.params;
     const { name } = req.body;
     
@@ -24,7 +29,7 @@ server.put('/teste/:index', checkKeyExists, (req, res) => {
     return res.json(lista);
 });
 
-server.delete('/teste/:index', (req, res) => {
+server.delete('/soma/:index', (req, res) => {
     const { index } = req.params;
     
     lista.splice(index, 1);
