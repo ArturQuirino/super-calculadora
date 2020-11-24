@@ -62,18 +62,28 @@ class Calculadora extends Component {
     return (
       <main>
         <div className="calculadora__container-inputs">
-          <label htmlFor="primeiroNumeroInput">Primeiro Número: </label>
-          <label htmlFor="segundoNumeroInput">Segundo Número: </label>
-          <input
-            onChange={this.alterarValorNumero1}
-            type="number"
-            name="primeiroNumeroInput"
-          ></input>
-          <input
-            onChange={this.alterarValorNumero2}
-            type="number"
-            name="segundoNumeroInput"
-          ></input>
+          <form>
+            {/* <label htmlFor="primeiroNumeroInput">Primeiro Número: </label> */}
+            <div class="input-field">
+              <input
+                id="primeiro_numero"
+                type="number"
+                class="validate"
+                onChange={this.alterarValorNumero1}
+              />
+              <label htmlFor="primeiro_numero">Primeiro numero</label>
+            </div>
+
+            <div class="input-field">
+              <label htmlFor="segundoNumeroInput">Segundo Número: </label>
+              <input
+                onChange={this.alterarValorNumero2}
+                type="number"
+                id="segundoNumeroInput"
+                className="validate"
+              ></input>
+            </div>
+          </form>
         </div>
         <div>
           {this.calculos.map((calculo) => (
