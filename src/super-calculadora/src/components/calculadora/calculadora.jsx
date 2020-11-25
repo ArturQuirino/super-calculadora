@@ -1,12 +1,16 @@
 import React, { Component } from 'react';
 import DisplayCalculo from './displayCalculo/displayCalculo';
 import './calculadora.css';
+import { connect } from 'react-redux';
+import { addNumeroHistorico } from '../../store/actions';
+import { bindActionCreators } from 'redux';
 
 class Calculadora extends Component {
   state = { numero1: 0, numero2: 0 };
 
   alterarValorNumero1 = (event) => {
     this.setState({ numero1: event.target.value });
+    this.props.addNumeroHistorico(event.target.value);
   };
 
   alterarValorNumero2 = (event) => {
@@ -58,6 +62,8 @@ class Calculadora extends Component {
     },
   ];
 
+  
+
   render() {
     return (
       <main>
@@ -100,4 +106,4 @@ class Calculadora extends Component {
   }
 }
 
-export default Calculadora;
+export default connect(null, {addNumeroHistorico})(Calculadora);
