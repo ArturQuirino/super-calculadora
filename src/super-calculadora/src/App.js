@@ -5,20 +5,20 @@ import Calculadora from './components/calculadora/calculadora';
 import Sobre from './components/sobre/sobre';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 class App extends Component {
+
   state = {
     response: ''
   };
 
   componentDidMount() {
     this.callApi()
-      .then(res => this.setState({ response: res.express }))
+      .then(res => this.setState({ response: res.nome }))
       .catch(err => console.log(err));
   }
 
   callApi = async () => {
-    const response = await fetch('/soma');
+    const response = await fetch('/nome');
     const body = await response.json();
-    console.log(body);
     if (response.status !== 200) throw Error(body.message);
   
     return body;
@@ -28,7 +28,7 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
-          <Header autor="Artur"></Header>
+          <Header autor={this.state.response}></Header>
           <Switch>
             <Route path="/sobre">
               <Sobre></Sobre>
