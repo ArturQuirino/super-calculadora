@@ -1,11 +1,21 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
-const Sobre = () => {
-  return (
-    <article>
-      Esta é uma supercalculadora desenvovlida pelos alunos da UFV
-    </article>
-  );
+class Sobre extends Component {
+  render() {
+    return (
+      <article>
+        Esta é uma supercalculadora desenvovlida pelos alunos da UFV
+        <div>{this.props.historico}</div>
+      </article>
+    );
+  }
+}
+
+const mapStateToProps = (state) => {
+  return {
+    historico: state.historico,
+  };
 };
 
-export default Sobre;
+export default connect(mapStateToProps)(Sobre);
